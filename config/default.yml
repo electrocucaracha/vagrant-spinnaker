@@ -8,29 +8,29 @@
 # http://www.apache.org/licenses/LICENSE-2.0
 ##############################################################################
 
-- name: "controller01"
-  ip: "11.10.10.3"
+- name: "master01"
+  ip: "10.10.14.3"
   memory: 8192
   cpus: 2
   roles:
     - kube-master
     - etcd
-- name: "controller02"
-  ip: "11.10.10.4"
+- name: "master02"
+  ip: "10.10.14.4"
   memory: 8192
   cpus: 2
   roles:
     - kube-master
     - etcd
-- name: "controller03"
-  ip: "11.10.10.5"
+- name: "master03"
+  ip: "10.10.14.5"
   memory: 8192
   cpus: 2
   roles:
     - kube-master
     - etcd
-- name: "compute01"
-  ip: "11.10.10.6"
+- name: "minion01"
+  ip: "10.10.14.6"
   memory: 32768
   cpus: 16
   volumes:
@@ -39,8 +39,8 @@
       mount: /var/lib/docker/
   roles:
     - kube-node
-- name: "compute02"
-  ip: "11.10.10.7"
+- name: "minion02"
+  ip: "10.10.14.7"
   memory: 8192
   cpus: 4
   roles:

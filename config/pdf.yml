@@ -8,22 +8,15 @@
 # http://www.apache.org/licenses/LICENSE-2.0
 ##############################################################################
 
-- name: "master"
+- name: "aio"
   ip: "10.10.14.3"
-  memory: 8192
-  cpus: 2
+  memory: 32768
+  cpus: 16
+  volumes:
+    - name: sda
+      size: 50
+      mount: /var/lib/docker/
   roles:
     - kube-master
     - etcd
-- name: "minion01"
-  ip: "10.10.14.4"
-  memory: 65536
-  cpus: 16
-  roles:
-    - kube-node
-- name: "minion02"
-  ip: "10.10.14.5"
-  memory: 65536
-  cpus: 16
-  roles:
     - kube-node

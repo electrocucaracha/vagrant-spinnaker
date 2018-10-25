@@ -1,4 +1,6 @@
 .vagrant/
 .tox/
 *.log
+.*swp
 inventory/group_vars/all.yml
+inventory/hosts.ini

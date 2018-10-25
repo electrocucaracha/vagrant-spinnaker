@@ -111,13 +111,9 @@ Vagrant.configure("2") do |config|
   if provider == :libvirt
     sync_type = "nfs"
   end
-  config.vm.define :installer, primary: true, autostart: false do |installer|
+  config.vm.define :undercloud, primary: true, autostart: false do |installer|
     installer.vm.hostname = "multicloud"
-    installer.vm.network :private_network, :ip => "11.10.10.2", :type => :static
-    installer.vm.synced_folder '../', '/root/go/src/k8-plugin-multicloud/', type: sync_type
-    installer.vm.provision 'shell' do |sh|
-      sh.env = {'KRD_ENABLE_TESTS': 'false'}
-      sh.path = "main.sh"
-    end
+    installer.vm.network :private_network, :ip => "10.10.14.2", :type => :static
+    installer.vm.provision :shell, :path => "main.sh", privileged: false
   end
 end

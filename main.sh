@@ -11,5 +11,5 @@
 set -o nounset
 set -o pipefail
 
-cd ~/go/src/k8-plugin-multicloud/vagrant
-sudo -H -E bash ./installer.sh | tee krd_installer.log
+cd /vagrant/
+bash ./installer.sh | tee installer.log
